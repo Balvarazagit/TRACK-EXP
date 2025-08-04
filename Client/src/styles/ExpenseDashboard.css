@@ -1,0 +1,507 @@
+/* Base Styles */
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --primary-light: #a5b4fc;
+  --text-light: #f3f4f6;
+  --text-dark: #111827;
+  --bg-light: #f9fafb;
+  --bg-dark: #111827;
+  --card-light: #ffffff;
+  --card-dark: #1f2937;
+  --border-light: #e5e7eb;
+  --border-dark: #374151;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+.app-container {
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.dark {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.light {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+.main-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+.app-header {
+  --header-bg-light: #ffffff;
+  --header-bg-dark: #1a1a2e;
+  --text-light: #f8f9fa;
+  --text-dark: #212529;
+  --accent-color: #4a6fa5;
+  --button-hover-light: #f1f3f5;
+  --button-hover-dark: #2d3748;
+  --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --shadow-dark: 0 2px 10px rgba(0, 0, 0, 0.3);
+  
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-light);
+  border-radius: 1rem;
+  margin-bottom: 20px;
+}
+
+.app-header.dark {
+  box-shadow: var(--shadow-dark);
+}
+
+.light .app-header {
+  background-color: var(--header-bg-light);
+  color: var(--text-dark);
+}
+
+.dark .app-header {
+  background-color: var(--header-bg-dark);
+  color: var(--text-light);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.app-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.app-icon {
+  font-size: 1.3em;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.flatmate-button,
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.light .flatmate-button,
+.light .theme-toggle {
+  background-color: transparent;
+  color: var(--text-dark);
+}
+
+.dark .flatmate-button,
+.dark .theme-toggle {
+  background-color: transparent;
+  color: var(--text-light);
+}
+
+.flatmate-button:hover {
+  background-color: var(--button-hover-light);
+}
+
+.dark .flatmate-button:hover {
+  background-color: var(--button-hover-dark);
+}
+
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+.button-icon,
+.theme-toggle .icon {
+  font-size: 1.2rem;
+}
+
+.button-text {
+  font-size: 0.9rem;
+}
+
+/* Modal Overlay Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Ensure modal appears above all other content */
+.flatmate-modal {
+  position: relative;
+  z-index: 1001;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Prevent scrolling when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Animation */
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.app-header {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 1rem 2rem;
+  }
+  
+  .app-title {
+    font-size: 1.3rem;
+  }
+  
+  .button-text {
+    display: none;
+  }
+  
+  .flatmate-button,
+  .theme-toggle {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-title span:last-child {
+    display: none;
+  }
+}
+
+/* Grid Layout */
+.content-grid {
+  display: grid;
+   flex-direction: column;
+  gap: 1rem;
+}
+
+.form-section, .data-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Card Styles */
+.card-dashboard {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  min-height: auto;
+  padding: 1rem;
+}
+
+.light .card-dashboard {
+  background-color: var(--card-light);
+  border: 1px solid var(--border-light);
+}
+
+.dark .card-dashboard {
+  background-color: var(--card-dark);
+  border: 1px solid var(--border-dark);
+}
+
+.card-dashboard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Form Card Specific */
+.form-card {
+  min-height: 400px;
+}
+
+/* Chart Card Specific */
+.chart-card {
+  min-height: 450px;
+}
+
+.chart-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.category-filter {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  max-width: 200px;
+}
+
+.light .category-filter {
+  background-color: white;
+  border: 1px solid var(--border-light);
+}
+
+.dark .category-filter {
+  background-color: #374151;
+  border: 1px solid var(--border-dark);
+}
+
+/* List Card Specific */
+.list-card {
+  min-height: 400px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-fade {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide {
+  animation: slideIn 0.6s ease-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+.hover-grow {
+  transition: all 0.3s ease;
+}
+
+.hover-grow:hover {
+  transform: scale(1.02);
+}
+
+/* Responsive Breakpoints */
+@media (min-width: 640px) {
+  .app-container {
+    padding: 1.5rem;
+  }
+  
+  .app-title {
+    font-size: 2rem;
+  }
+  
+  .chart-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 768px) {
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-container {
+    padding: 2rem;
+  }
+  
+  .content-grid {
+    gap: 2rem;
+  }
+  
+  .form-section, .data-section {
+    gap: 2rem;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* Responsive Improvements */
+@media (max-width: 767px) {
+  .card-dashboard {
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-card,
+  .summary-card-dashboard,
+  .chart-card,
+  .list-card {
+    min-height: auto;
+  }
+
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .category-filter {
+    width: 100%;
+    max-width: none;
+    font-size: 0.85rem;
+  }
+
+  .theme-toggle {
+    font-size: 1.2rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .app-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .app-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .content-grid {
+    gap: 1rem;
+  }
+}
+
+/* Small Tablets (768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .form-section,
+  .data-section {
+    gap: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .category-filter {
+    font-size: 0.9rem;
+  }
+  .card-dashboard {
+    min-height: 400px;
+    padding: 1.5rem;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .card-dashboard{
+    width: 96%;
+  }
+}

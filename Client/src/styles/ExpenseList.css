@@ -1,0 +1,229 @@
+.expense-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  gap: 1rem;
+}
+
+.light .expense-item {
+  background-color: #f3f4f6;
+}
+
+.dark .expense-item {
+  background-color: #374151;
+}
+
+.expense-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.expense-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.expense-title {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.expense-meta {
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.light .expense-meta {
+  color: #6b7280;
+}
+
+.dark .expense-meta {
+  color: #d1d5db;
+}
+
+.expense-addedby {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  color: #9ca3af;
+}
+
+.expense-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.expense-amount {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.dark .expense-amount {
+  color: var(--primary-light);
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.light .delete-btn {
+  color: #6b7280;
+}
+
+.dark .delete-btn {
+  color: #d1d5db;
+}
+
+.light .delete-btn:hover {
+  background-color: #e5e7eb;
+  color: var(--danger);
+}
+
+.dark .delete-btn:hover {
+  background-color: #4b5563;
+  color: var(--danger);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 84%;
+  gap: 1rem;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  opacity: 0.7;
+}
+
+.light .empty-state {
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+.dark .empty-state {
+  background-color: #374151;
+  color: #d1d5db;
+}
+
+/* Scrollbar */
+.expense-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.expense-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.expense-list::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.expense-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* 💡 RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+  .expense-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .expense-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .expense-amount {
+    font-size: 1.1rem;
+  }
+
+  .delete-btn {
+    padding: 0.4rem;
+  }
+
+  .expense-meta {
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.8rem;
+  }
+
+  .expense-addedby {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .expense-item {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .expense-details {
+    flex: 1 1 100%;
+  }
+
+  .expense-actions {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .expense-title {
+    font-size: 1rem;
+  }
+
+  .expense-meta {
+    font-size: 0.75rem;
+  }
+
+  .expense-amount {
+    font-size: 1rem;
+  }
+
+  .delete-btn {
+    font-size: 1rem;
+  }
+
+  .expense-addedby {
+    font-size: 0.65rem;
+  }
+}

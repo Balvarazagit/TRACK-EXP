@@ -1,0 +1,78 @@
+/*
+.chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.chart-container {
+  height: 280px;
+}
+
+@media (min-width: 480px) {
+  .chart-container {
+    height: 320px;
+  }
+}
+
+@media (min-width: 768px) {
+  .chart-container {
+    height: 360px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .chart-container {
+    height: 400px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .chart-container {
+    height: 450px;
+  }
+}
+*/
+
+/* Update the chart container */
+.chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0.5rem;
+  min-height: 250px; /* Minimum height for mobile */
+}
+
+/* Mobile First */
+.chart-container {
+  height: auto;
+  aspect-ratio: 1/1; /* Maintain square aspect ratio */
+}
+
+@media (min-width: 480px) {
+  .chart-container {
+    aspect-ratio: 1.2/1;
+  }
+}
+
+@media (min-width: 768px) {
+  .chart-container {
+    aspect-ratio: 1.5/1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .chart-container {
+    aspect-ratio: 1.8/1;
+  }
+}
+
+.chart-empty {
+  padding: 2rem;
+  text-align: center;
+  font-size: 1rem;
+  color: gray;
+}
