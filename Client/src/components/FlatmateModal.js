@@ -114,34 +114,42 @@ toast.error("Server error while deleting group");
           <p>Create or join a shared expense group</p>
         </div>
 
-        {groupHistory.length > 0 && (
-          <div className="group-history-list">
-            <h4>📜 Your Previous Groups:</h4>
-            <ul>
-              {groupHistory.map((g) => (
-                <li key={g._id}>
-                  <span>🔑 {g.code}</span>
-                  <button
-                    className="copy-btn"
-                    onClick={() => {
-                      navigator.clipboard.writeText(g.code);
-                      setCopiedGroupId(g._id);
-                      setTimeout(() => setCopiedGroupId(null), 2000);
-                    }}
-                  >
-                    {copiedGroupId === g._id ? "✓ Copied!" : "Copy"}
-                  </button>
-                  <button
-                    className="delete-btn"
-                    onClick={() => handleDeleteGroup(g._id)}
-                  >
-                    🗑️
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+       {groupHistory.length > 0 ? (
+  <div className="group-history-list">
+    <h4>📜 Your Previous Groups:</h4>
+    {groupHistory.filter(g => g.creator === user.id).length > 0 ? (
+      <ul>
+        {groupHistory
+          .filter(g => g.creator === user.id)
+          .map((g) => (
+            <li key={g._id}>
+              <span>🔑 {g.code}</span>
+              <button
+                className="copy-btn"
+                onClick={() => {
+                  navigator.clipboard.writeText(g.code);
+                  setCopiedGroupId(g._id);
+                  setTimeout(() => setCopiedGroupId(null), 2000);
+                }}
+              >
+                {copiedGroupId === g._id ? "✓ Copied!" : "Copy"}
+              </button>
+              <button
+                className="delete-btn"
+                onClick={() => handleDeleteGroup(g._id)}
+              >
+                🗑️
+              </button>
+            </li>
+          ))}
+      </ul>
+    ) : (
+      <p className="empty-group-message">You haven't created any groups yet.</p>
+    )}
+  </div>
+) : null}
+
+
 
         <div className="tabs">
           <button

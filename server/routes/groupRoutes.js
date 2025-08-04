@@ -10,7 +10,7 @@ router.post('/create', async (req, res) => {
     const { userId } = req.body;
     const code = uuidv4().slice(0, 6).toUpperCase();
 
-    const group = new Group({ code, members: [userId] });
+    const group = new Group({ code, members: [userId] ,creator : [userId] });
     await group.save();
 
     await User.findByIdAndUpdate(userId, { groupId: group._id });
