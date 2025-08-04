@@ -500,8 +500,8 @@ body.modal-open {
   }
 }
 
-@media screen and (max-width:480px) {
+/* @media screen and (max-width:480px) {
   .card-dashboard{
     width: 96%;
   }
-}
+} */
