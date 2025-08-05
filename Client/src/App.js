@@ -7,6 +7,8 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import { FlatmateProvider } from './context/FlatmateContext';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ForgotPassword from './pages/ForgotPasswordPage';
+import ResetPassword from './pages/ResetPasswordPage';
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useAuth();
@@ -27,6 +29,8 @@ function App() {
           } />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/forgot_password" element={<ForgotPassword/>}/>
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
         </Routes>
       </Router>
     </AuthProvider>

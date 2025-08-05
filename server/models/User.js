@@ -9,6 +9,9 @@ const userSchema = new mongoose.Schema({
   ref: 'Group',
   default: null,
 },
+resetToken: String,
+resetTokenExpiration: Date,
+
 }, { timestamps: true });
 
 module.exports = mongoose.model('User', userSchema);
