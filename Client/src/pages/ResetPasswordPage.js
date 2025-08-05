@@ -3,12 +3,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { resetPassword } from '../features_slice/auth/authThunks';
 import '../styles/ResetPassword.css'
+
 const ResetPassword = () => {
   const [password, setPassword] = useState('');
   const { token } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { loading, successMessage, errorMessage } = useSelector(state => state.auth);
+  const { loading, message, error } = useSelector(state => state.auth);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,8 +36,8 @@ const ResetPassword = () => {
         </button>
       </form>
 
-      {successMessage && <p className="success-msg">{successMessage}</p>}
-      {errorMessage && <p className="error-msg">{errorMessage}</p>}
+      {message && <p className="success-msg">{message}</p>}
+      {error && <p className="error-msg">{error}</p>}
     </div>
   );
 };

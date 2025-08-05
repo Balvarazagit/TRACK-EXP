@@ -6,7 +6,7 @@ import '../styles/ForgotPassword.css'
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
   const dispatch = useDispatch();
-  const { loading, successMessage, errorMessage } = useSelector(state => state.auth);
+  const { loading, message, error } = useSelector(state => state.auth);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,8 +29,8 @@ const ForgotPassword = () => {
         </button>
       </form>
 
-      {successMessage && <p className="success-msg">{successMessage}</p>}
-      {errorMessage && <p className="error-msg">{errorMessage}</p>}
+      {message && <p className="success-msg">{message}</p>}
+      {error && <p className="error-msg">{error}</p>}
     </div>
   );
 };
