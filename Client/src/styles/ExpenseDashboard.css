@@ -420,6 +420,66 @@ body.modal-open {
   }
 }
 
+@media screen and (max-width:1390px){
+  .data-section{
+    width: 99%;
+  }
+}
+@media screen and (max-width:1160px){
+  .data-section{
+    width: 97%;
+  }
+}
+@media screen and (max-width:1130px){
+  .data-section{
+    width: 90%;
+  }
+}
+@media screen and (max-width:1100px){
+  .data-section{
+    width: 85%;
+  }
+}
+@media screen and (max-width:1100px){
+  .data-section{
+    width: 80%;
+  }
+}
+@media screen and (max-width:1030px){
+  .data-section{
+    width: 75%;
+  }
+}
+@media screen and (max-width:1025px){
+  .data-section{
+    width: 70%;
+  }
+}
+@media screen and (max-width:1000px){
+  .content-grid{
+    grid-template-columns: 1fr;
+  }
+  .data-section{
+    width: 100%;
+  }
+}
+@media screen and (max-width:800px){
+  .data-section{
+    width: 99%;
+  }
+}
+@media screen and (max-width:330px){
+  .data-section{
+    width: 90%;
+  }
+  .card-dashboard {
+    width: 85%;
+    align-self: center;
+  }
+  .form-section{
+    width: 94%;
+  }
+}
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   * {
